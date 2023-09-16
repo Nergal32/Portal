@@ -1,0 +1,17 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Create Team') }}
+        </h2>
+    </x-slot>
+
+    <div>
+        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            @if (auth()->user()->hasRole('admin'))
+                @livewire('teams.create-team-form')
+            @else
+                <p class="text-red-500">Nie masz uprawnień do tworzenia nowych zespołów.</p>
+            @endif
+        </div>
+    </div>
+</x-app-layout>
